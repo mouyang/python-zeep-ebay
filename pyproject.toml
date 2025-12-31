@@ -1,0 +1,65 @@
+[project]
+name = "zeep-ebay"
+version = "1.0.0"
+description = "Zeep extensions required to work with the eBay Trading API"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Matthew Ouyang", email = "michaelvantellingen@gmail.com" }
+]
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+    "zeep==4.3.2+ebaytradingapi"
+]
+
+[project.urls]
+Repository = "https://github.com/mouyang/python-zeep-ebay"
+Documentation = "https://github.com/mouyang/python-zeep-ebay"
+
+[build-system]
+requires = ["setuptools>=40.6.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.coverage.run]
+branch = true
+source = ["zeep"]
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages/"]
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.isort]
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+balanced_wrapping = true
+default_section = "THIRDPARTY"
+known_first_party = ["zeep", "tests"]
+use_parentheses = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = [
+    "tests",
+]
+markers = [
+    # mark a test to allow socket usage
+    "requests",
+    "network: test case requires network connection",
+]
+
+[tool.flake8]
+max-line-length = 99
