@@ -5,7 +5,7 @@ from zeep import Client, Settings, Transport
 from zeep.ebay.transport import EbaySoapTransport
 
 # TODO Add sandbox support; currently not implemented because it downloads and parses a WSDL that doesn't include the 
-# sandbox URL in it. 
+# sandbox URL in it (https://developer.ebay.com/api-docs/user-guides/static/make-a-call/using-soap.html#gateways).
 class TradingApiClient(Client):
     def __init__(self, siteid : str, version : str = "latest", 
         wsse=None,
