@@ -2,7 +2,7 @@ from copy import deepcopy
 from enum import Enum
 
 from zeep import Client, Settings, Transport
-from zeep.ebay.transport import EbaySoapTransport
+from zeep.ebay.transports import EbaySoapTransport
 
 # TODO Add sandbox support; currently not implemented because it downloads and parses a WSDL that doesn't include the 
 # sandbox URL in it (https://developer.ebay.com/api-docs/user-guides/static/make-a-call/using-soap.html#gateways).
@@ -37,9 +37,7 @@ class TradingApiClient(Client):
         self.settings.strict = False
 
         super().__init__(self.wsdl  
-            , transport=EbaySoapTransport(
-                version=self.version, siteid=self.siteid, 
-                cache=transport.cache, timeout=transport.load_timeout, operation_timeout=transport.operation_timeout, session=transport.session)
+            , transport=EbaySoapTransport(version=self.version, siteid=self.siteid, transport=transport)
             , settings=self.settings
             , wsse=wsse
             , service_name=service_name
