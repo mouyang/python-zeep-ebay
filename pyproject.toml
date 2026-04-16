@@ -1,6 +1,6 @@
 [project]
 name = "zeep-ebay"
-version = "1.0.0"
+version = "1.1.0"
 description = "Zeep extensions required to work with the eBay Trading API"
 readme = "README.md"
 license = { text = "MIT" }
