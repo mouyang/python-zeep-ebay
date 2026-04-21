@@ -20,7 +20,7 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dependencies = [
-    "zeep==4.3.2+ebaytradingapi"
+    "zeep==4.3.2+ebaytradingapi.1"
 ]
 
 [project.urls]
