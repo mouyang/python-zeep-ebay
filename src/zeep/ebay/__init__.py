@@ -1,4 +1,4 @@
 from .client import TradingApiClient
-from .transport import EbaySoapTransport
+from .transports import EbaySoapTransport
 
 __all__ = ["TradingApiClient", "EbaySoapTransport"]
